@@ -71,12 +71,46 @@
 # Use `Model.destroy_all` code.
 # TODO!
 
+Actor.destroy_all
+Movie.destroy_all
+Role.destroy_all
+Studio.destroy_all
+
 # Generate models and tables, according to the domain model.
 # TODO!
+
+new_Studio = Studio.new
+new_Studio ["name"] = "Warner Bros."
+new_Studio.save
+
+new_Movie1 = Movie.new
+new_Movie1 ["title"] = "Batman Begins"
+new_Movie1 ["year_released"] = "2005"
+new_Movie1 ["rated"] = "PG-13"
+new_Movie1 ["studio_id"] = 1
+new_Movie1.save
+
+new_Movie2 = Movie.new
+new_Movie2 ["title"] = "The Dark Knight"
+new_Movie2 ["year_released"] = "2008"
+new_Movie2 ["rated"] = "PG-13"
+new_Movie2 ["studio_id"] = 1
+new_Movie2.save
+
+new_Movie3 = Movie.new
+new_Movie3 ["title"] = "The Dark Knight Rises"
+new_Movie3 ["year_released"] = "2012"
+new_Movie3 ["rated"] = "PG-13"
+new_Movie3 ["studio_id"] = 1
+new_Movie3.save
+
+puts "there are #{Movie.all.count}"
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+
 
 # Prints a header for the movies output
 puts "Movies"
