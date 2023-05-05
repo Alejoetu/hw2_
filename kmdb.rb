@@ -260,7 +260,6 @@ new_Role15 ["actor_id"] = Hathaway["id"]
 new_Role15 ["character_name"] = "Selina Kyle"
 new_Role15.save
 
-puts "there are #{Role.all.count}"
 
 # Prints a header for the movies output
 puts "Movies"
@@ -270,6 +269,26 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
+# Movies
+# ======
+
+# Batman Begins          2005           PG-13  Warner Bros.
+# The Dark Knight        2008           PG-13  Warner Bros.
+# The Dark Knight Rises  2012           PG-13  Warner Bros.
+
+Warner_movie = Movie.where ({"studio_id" => Warner["id"]})
+
+for movie in Warner_movie
+    title = movie["title"]
+    year = movie["year_released"]
+    rating = movie["rated"]
+    studio = Warner["name"]
+
+    puts "#{title} #{year} #{rating} #{studio}"
+end 
+ 
+
+
 # Prints a header for the cast output
 puts ""
 puts "Top Cast"
@@ -278,3 +297,35 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+# Top Cast
+# ========
+
+# Batman Begins          Christian Bale        Bruce Wayne
+# Batman Begins          Michael Caine         Alfred
+# Batman Begins          Liam Neeson           Ra's Al Ghul
+# Batman Begins          Katie Holmes          Rachel Dawes
+# Batman Begins          Gary Oldman           Commissioner Gordon
+# The Dark Knight        Christian Bale        Bruce Wayne
+# The Dark Knight        Heath Ledger          Joker
+# The Dark Knight        Aaron Eckhart         Harvey Dent
+# The Dark Knight        Michael Caine         Alfred
+# The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
+# The Dark Knight Rises  Christian Bale        Bruce Wayne
+# The Dark Knight Rises  Gary Oldman           Commissioner Gordon
+# The Dark Knight Rises  Tom Hardy             Bane
+# The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
+# The Dark Knight Rises  Anne Hathaway         Selina Kyle
+
+# Actores = Role.where ({"actor_id" => Batman["id"]})
+
+Titulos = Role.where ({"movie_id" => Movies["id"]})
+
+for role in Titulos
+    title = 1
+    # actor = actor["name"]
+    character = role ["character_name"]
+    
+
+    puts "#{title} #{character}"
+end 
