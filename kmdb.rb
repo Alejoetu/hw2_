@@ -317,15 +317,10 @@ puts ""
 # The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
 # The Dark Knight Rises  Anne Hathaway         Selina Kyle
 
-# Actores = Role.where ({"actor_id" => Batman["id"]})
+roles = Role.all
+# film = Movie.all
+# tan= Role.where ({"movie_id" => film["id"]})
 
-Titulos = Role.where ({"movie_id" => Movies["id"]})
-
-for role in Titulos
-    title = 1
-    # actor = actor["name"]
-    character = role ["character_name"]
-    
-
-    puts "#{title} #{character}"
-end 
+for role in roles
+    puts "#{role["character_name"]}"
+end
